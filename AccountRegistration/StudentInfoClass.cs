@@ -10,8 +10,8 @@ namespace AccountRegistration
     public delegate string DelegateText(string txt);
     internal class StudentInfoClass
     {
-        public static string SetProgram, SetGender, SetBirthday, SetFullName, SetAddress = " ";
-        public static int SetAge, SetContactNo, SetStudentNo = 0;
+        public static string SetProgram, SetGender, SetBirthday, SetFullName, SetAddress, SetAge  = " ";
+        public static int SetContactNo, SetStudentNo = 0;
 
         public static string GetFullName(string FullName)
         {
@@ -33,7 +33,7 @@ namespace AccountRegistration
         {
             return Birthday;
         }
-        public static int GetAge(int Age) 
+        public static string GetAge(string Age) 
         {
             return Age;
         }

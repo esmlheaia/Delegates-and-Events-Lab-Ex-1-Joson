@@ -8,8 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Text.RegularExpressions;
 
 namespace AccountRegistration
 {
@@ -19,6 +17,11 @@ namespace AccountRegistration
         {
             InitializeComponent();
         }
+        private string _FullName;
+        private int _Age;
+        private long _StudentNo;
+        private long _ContactNo;
+
         public long StudentNumber(string studNum)
         {
 
@@ -56,19 +59,17 @@ namespace AccountRegistration
 
             return _Age;
         }
-
         private void Next_Click(object sender, EventArgs e)
         {
             StudentInfoClass.SetFullName = txtfirstname.Text.ToString();
             StudentInfoClass.SetAddress = txtaddress.Text.ToString();
             StudentInfoClass.SetProgram = cbprogram.Text.ToString();//combo box
-            StudentInfoClass.SetAge =(int)Convert.ToInt64(txtage.Text);
+            StudentInfoClass.SetAge =txtage.Text.ToString();
             StudentInfoClass.SetContactNo = (int)Convert.ToInt64(txtcontactno.Text);
             StudentInfoClass.SetStudentNo = (int)Convert.ToInt64(txtstudentno.Text);
 
             FrmConfirm frmConfirm = new FrmConfirm();
             DialogResult result = frmConfirm.ShowDialog();
-
 
             if (result == DialogResult.OK)
             {
