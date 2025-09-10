@@ -10,10 +10,10 @@ namespace AccountRegistration
     public delegate string DelegateText(string txt);
     internal class StudentInfoClass
     {
-        public static string FirstName, LastName, MiddleName, Address, Program = " ";
+        public static string FirstName, LastName, MiddleName, Address, Program, Gender, Birthday = " ";
         public static long Age, ContactNo, StudentNo = 0;
 
-        public static string GetFirstName(string FirstName)
+        public static string SetFirstName(string FirstName)
         {
             return FirstName;
         }

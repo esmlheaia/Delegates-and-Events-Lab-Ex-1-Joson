@@ -31,12 +31,12 @@
             this.labelstudentno = new System.Windows.Forms.Label();
             this.labelprogram = new System.Windows.Forms.Label();
             this.labellastname = new System.Windows.Forms.Label();
-            this.labelfirstname = new System.Windows.Forms.Label();
-            this.labelmiddlename = new System.Windows.Forms.Label();
             this.labelage = new System.Windows.Forms.Label();
             this.labelcontactnum = new System.Windows.Forms.Label();
             this.labeladdress = new System.Windows.Forms.Label();
             this.bSubmit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelstudentno
@@ -52,7 +52,7 @@
             // labelprogram
             // 
             this.labelprogram.AutoSize = true;
-            this.labelprogram.Location = new System.Drawing.Point(3, 39);
+            this.labelprogram.Location = new System.Drawing.Point(3, 65);
             this.labelprogram.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelprogram.Name = "labelprogram";
             this.labelprogram.Size = new System.Drawing.Size(58, 15);
@@ -62,37 +62,17 @@
             // labellastname
             // 
             this.labellastname.AutoSize = true;
-            this.labellastname.Location = new System.Drawing.Point(3, 67);
+            this.labellastname.Location = new System.Drawing.Point(3, 37);
             this.labellastname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labellastname.Name = "labellastname";
-            this.labellastname.Size = new System.Drawing.Size(68, 15);
+            this.labellastname.Size = new System.Drawing.Size(44, 15);
             this.labellastname.TabIndex = 2;
-            this.labellastname.Text = "Last name:";
-            // 
-            // labelfirstname
-            // 
-            this.labelfirstname.AutoSize = true;
-            this.labelfirstname.Location = new System.Drawing.Point(3, 101);
-            this.labelfirstname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelfirstname.Name = "labelfirstname";
-            this.labelfirstname.Size = new System.Drawing.Size(68, 15);
-            this.labelfirstname.TabIndex = 3;
-            this.labelfirstname.Text = "First name:";
-            // 
-            // labelmiddlename
-            // 
-            this.labelmiddlename.AutoSize = true;
-            this.labelmiddlename.Location = new System.Drawing.Point(3, 130);
-            this.labelmiddlename.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelmiddlename.Name = "labelmiddlename";
-            this.labelmiddlename.Size = new System.Drawing.Size(86, 15);
-            this.labelmiddlename.TabIndex = 4;
-            this.labelmiddlename.Text = "Middle name: ";
+            this.labellastname.Text = "Name:";
             // 
             // labelage
             // 
             this.labelage.AutoSize = true;
-            this.labelage.Location = new System.Drawing.Point(3, 159);
+            this.labelage.Location = new System.Drawing.Point(3, 90);
             this.labelage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelage.Name = "labelage";
             this.labelage.Size = new System.Drawing.Size(31, 15);
@@ -102,7 +82,7 @@
             // labelcontactnum
             // 
             this.labelcontactnum.AutoSize = true;
-            this.labelcontactnum.Location = new System.Drawing.Point(3, 190);
+            this.labelcontactnum.Location = new System.Drawing.Point(4, 198);
             this.labelcontactnum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelcontactnum.Name = "labelcontactnum";
             this.labelcontactnum.Size = new System.Drawing.Size(73, 15);
@@ -112,7 +92,7 @@
             // labeladdress
             // 
             this.labeladdress.AutoSize = true;
-            this.labeladdress.Location = new System.Drawing.Point(3, 220);
+            this.labeladdress.Location = new System.Drawing.Point(3, 117);
             this.labeladdress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeladdress.Name = "labeladdress";
             this.labeladdress.Size = new System.Drawing.Size(57, 15);
@@ -121,7 +101,7 @@
             // 
             // bSubmit
             // 
-            this.bSubmit.Location = new System.Drawing.Point(114, 266);
+            this.bSubmit.Location = new System.Drawing.Point(109, 245);
             this.bSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.bSubmit.Name = "bSubmit";
             this.bSubmit.Size = new System.Drawing.Size(88, 26);
@@ -130,18 +110,36 @@
             this.bSubmit.UseVisualStyleBackColor = true;
             this.bSubmit.Click += new System.EventHandler(this.bSubmit_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 146);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Birthday:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 172);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Gender:";
+            // 
             // FrmConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(320, 372);
+            this.BackColor = System.Drawing.Color.Pink;
+            this.ClientSize = new System.Drawing.Size(333, 303);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bSubmit);
             this.Controls.Add(this.labeladdress);
             this.Controls.Add(this.labelcontactnum);
             this.Controls.Add(this.labelage);
-            this.Controls.Add(this.labelmiddlename);
-            this.Controls.Add(this.labelfirstname);
             this.Controls.Add(this.labellastname);
             this.Controls.Add(this.labelprogram);
             this.Controls.Add(this.labelstudentno);
@@ -161,11 +159,11 @@
         private System.Windows.Forms.Label labelstudentno;
         private System.Windows.Forms.Label labelprogram;
         private System.Windows.Forms.Label labellastname;
-        private System.Windows.Forms.Label labelfirstname;
-        private System.Windows.Forms.Label labelmiddlename;
         private System.Windows.Forms.Label labelage;
         private System.Windows.Forms.Label labelcontactnum;
         private System.Windows.Forms.Label labeladdress;
         private System.Windows.Forms.Button bSubmit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

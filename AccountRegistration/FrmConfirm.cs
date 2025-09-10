@@ -15,14 +15,14 @@ namespace AccountRegistration
         private DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
         private DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
 
-        
+    
 
         public FrmConfirm()
         {
             InitializeComponent();
             DelProgram = new DelegateText(StudentInfoClass.GetProgram);
             DelLastName = new DelegateText(StudentInfoClass.GetLastName);
-            DelFirstName = new DelegateText(StudentInfoClass.GetFirstName);
+            DelFirstName = new DelegateText(StudentInfoClass.SetFirstName);
             DelMiddleName = new DelegateText(StudentInfoClass.GetMiddleName);
             DelAddress = new DelegateText(StudentInfoClass.GetAddress);
 

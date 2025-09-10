@@ -51,7 +51,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtaddress = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -270,13 +270,12 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Birthday:";
             // 
-            // dateTimePicker1
+            // datePickerBirthday
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(232, 197);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePicker1.TabIndex = 27;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.datePickerBirthday.Location = new System.Drawing.Point(232, 197);
+            this.datePickerBirthday.Name = "datePickerBirthday";
+            this.datePickerBirthday.Size = new System.Drawing.Size(199, 20);
+            this.datePickerBirthday.TabIndex = 27;
             // 
             // cbGender
             // 
@@ -293,10 +292,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(456, 308);
             this.Controls.Add(this.cbGender);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.datePickerBirthday);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtaddress);
             this.Controls.Add(this.label12);
@@ -353,7 +352,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtaddress;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker datePickerBirthday;
         private System.Windows.Forms.ComboBox cbGender;
     }
 }
