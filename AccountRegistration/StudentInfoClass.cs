@@ -6,24 +6,16 @@ using System.Threading.Tasks;
 
 namespace AccountRegistration
 {
-    public delegate long DelegateNumber(long number);
+    public delegate int DelegateNumber(int number);
     public delegate string DelegateText(string txt);
     internal class StudentInfoClass
     {
-        public static string FirstName, LastName, MiddleName, Address, Program, Gender, Birthday = " ";
-        public static long Age, ContactNo, StudentNo = 0;
+        public static string SetProgram, SetGender, SetBirthday, SetFullName, SetAddress = " ";
+        public static int SetAge, SetContactNo, SetStudentNo = 0;
 
-        public static string SetFirstName(string FirstName)
+        public static string GetFullName(string FullName)
         {
-            return FirstName;
-        }
-        public static string GetLastName(string LastName)
-        {
-            return LastName;
-        }
-        public static string GetMiddleName(string MiddleName)
-        {
-            return MiddleName;
+            return FullName;
         }
         public static string GetAddress(string Address) 
         {
@@ -33,15 +25,23 @@ namespace AccountRegistration
         {
             return Program;
         }
-        public static long GetAge(long Age) 
+        public static string GetGender(string Gender)
+        {
+            return Gender;
+        }
+        public static string GetBirthday(string Birthday)
+        {
+            return Birthday;
+        }
+        public static int GetAge(int Age) 
         {
             return Age;
         }
-        public static long GetContactNo(long ContactNo)
+        public static int GetContactNo(int ContactNo)
         {
             return ContactNo;
         }
-        public static long GetStudentNo(long StudentNo)
+        public static int GetStudentNo(int StudentNo)
         {
             return StudentNo;
         }

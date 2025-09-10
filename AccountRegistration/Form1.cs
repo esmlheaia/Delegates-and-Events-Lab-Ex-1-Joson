@@ -19,14 +19,12 @@ namespace AccountRegistration
 
         private void Next_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.FirstName = txtfirstname.Text.ToString();
-            StudentInfoClass.LastName = txtlastname.Text.ToString();
-            StudentInfoClass.MiddleName = txtmiddlename.Text.ToString();
-            StudentInfoClass.Address = txtaddress.Text.ToString();
-            StudentInfoClass.Program = cbprogram.Text.ToString();//combo box
-            StudentInfoClass.Age = Convert.ToInt64(txtage.Text);
-            StudentInfoClass.ContactNo = Convert.ToInt64(txtcontactno.Text);
-            StudentInfoClass.StudentNo = Convert.ToInt64(txtstudentno.Text);
+            StudentInfoClass.SetFullName = txtfirstname.Text.ToString();
+            StudentInfoClass.SetAddress = txtaddress.Text.ToString();
+            StudentInfoClass.SetProgram = cbprogram.Text.ToString();//combo box
+            StudentInfoClass.SetAge =(int)Convert.ToInt64(txtage.Text);
+            StudentInfoClass.SetContactNo = (int)Convert.ToInt64(txtcontactno.Text);
+            StudentInfoClass.SetStudentNo = (int)Convert.ToInt64(txtstudentno.Text);
 
             FrmConfirm frmConfirm = new FrmConfirm();
             DialogResult result = frmConfirm.ShowDialog();

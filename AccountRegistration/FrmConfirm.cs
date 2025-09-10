@@ -21,9 +21,7 @@ namespace AccountRegistration
         {
             InitializeComponent();
             DelProgram = new DelegateText(StudentInfoClass.GetProgram);
-            DelLastName = new DelegateText(StudentInfoClass.GetLastName);
-            DelFirstName = new DelegateText(StudentInfoClass.SetFirstName);
-            DelMiddleName = new DelegateText(StudentInfoClass.GetMiddleName);
+            DelLastName = new DelegateText(StudentInfoClass.GetFullName);
             DelAddress = new DelegateText(StudentInfoClass.GetAddress);
 
             DelNumAge = new DelegateNumber(StudentInfoClass.GetAge);
@@ -35,8 +33,6 @@ namespace AccountRegistration
             labelprogram.Text = "Program: " + DelProgram(StudentInfoClass.Program);
             labelstudentno.Text = "Student No: " + DelStudNo(StudentInfoClass.StudentNo).ToString();
             labellastname.Text = "Last Name: " + DelLastName(StudentInfoClass.LastName);
-            labelfirstname.Text = "First Name: " + DelFirstName(StudentInfoClass.FirstName);
-            labelmiddlename.Text = "Middle Name: " + DelMiddleName(StudentInfoClass.MiddleName);
             labelage.Text = "Age: " + DelNumAge(StudentInfoClass.Age).ToString();
             labeladdress.Text = "Address: " + DelAddress(StudentInfoClass.Address);
             labelcontactnum.Text = "Contact No.: " + DelNumContactNo(StudentInfoClass.ContactNo).ToString();
