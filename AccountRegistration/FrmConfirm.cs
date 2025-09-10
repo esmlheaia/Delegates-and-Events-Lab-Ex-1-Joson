@@ -30,16 +30,18 @@ namespace AccountRegistration
             DelNumContactNo = new DelegateNumber(StudentInfoClass.GetContactNo);
             DelStudNo = new DelegateNumber(StudentInfoClass.GetStudentNo);
         }
+
+        // generate a form 
         private void FrmConfirm_Load(object sender, EventArgs e)
         {
-            labelprogram.Text = "Program: " + DelProgram(StudentInfoClass.SetProgram);
-            labelstudentno.Text = "Student No: " + DelStudNo(StudentInfoClass.SetStudentNo).ToString();
-            labelfirstname.Text = "Name: " + DelFullName(StudentInfoClass.SetFullName);
-            labelage.Text = "Age: " + DelNumAge(StudentInfoClass.SetAge);
-            labeladdress.Text = "Address: " + DelAddress(StudentInfoClass.SetAddress);
-            labelcontactnum.Text = "Contact No.: " + DelNumContactNo(StudentInfoClass.SetContactNo).ToString();
-            labelgender.Text = "Gender: " + DelGender(StudentInfoClass.SetGender);
-            labelgender.Text = "Birthday: " + DelGender(StudentInfoClass.SetBirthday);
+            labelprogram.Text = "Program: " + StudentInfoClass.SetProgram;
+            labelstudentno.Text = "Student No: " +StudentInfoClass.SetStudentNo.ToString();
+            labelfirstname.Text = "Name: " + StudentInfoClass.SetFullName;
+            labelage.Text = "Age: " + StudentInfoClass.SetAge;
+            labeladdress.Text = "Address: " + StudentInfoClass.SetAddress;
+            labelcontactnum.Text = "Contact No.: " + StudentInfoClass.SetContactNo.ToString();
+            labelgender.Text = "Gender: " + StudentInfoClass.SetGender;
+            labelbirthday.Text = "Birthday: " + StudentInfoClass.SetBirthday;
 
         }
         private void FrmConfirm_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,6 +50,7 @@ namespace AccountRegistration
         }
         private void bSubmit_Click(object sender, EventArgs e)
         {
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

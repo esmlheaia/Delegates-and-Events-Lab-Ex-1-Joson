@@ -17,19 +17,25 @@ namespace AccountRegistration
         {
             InitializeComponent();
         }
+        //add access modifier
         private string _FullName;
         private int _Age;
         private long _StudentNo;
         private long _ContactNo;
 
+
         public long StudentNumber(string studNum)
         {
-
-            _StudentNo = long.Parse(studNum);
-
+            if (string.IsNullOrEmpty(studNum))
+            {
+                _StudentNo = long.Parse(studNum);
+            }
+            else
+            {
+                throw new FormatException("Invalid Input");
+            }
             return _StudentNo;
         }
-
         public long ContactNo(string Contact)
         {
             if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
@@ -59,11 +65,14 @@ namespace AccountRegistration
 
             return _Age;
         }
+        //combo box 
         private void Next_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.SetFullName = txtfirstname.Text.ToString();
+            StudentInfoClass.SetFullName = FullName(txtfirstname.Text,txtlastname.Text, txtmiddlename.Text);
             StudentInfoClass.SetAddress = txtaddress.Text.ToString();
-            StudentInfoClass.SetProgram = cbprogram.Text.ToString();//combo box
+            StudentInfoClass.SetProgram = cbprogram.Text.ToString();
+            StudentInfoClass.SetGender = cbGender.Text.ToString();
+            StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
             StudentInfoClass.SetAge =txtage.Text.ToString();
             StudentInfoClass.SetContactNo = (int)Convert.ToInt64(txtcontactno.Text);
             StudentInfoClass.SetStudentNo = (int)Convert.ToInt64(txtstudentno.Text);
