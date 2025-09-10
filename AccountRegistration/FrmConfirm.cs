@@ -12,7 +12,7 @@ namespace AccountRegistration
 {
     public partial class FrmConfirm : Form
     {
-        private DelegateText DelProgram, DelLastName, DelFirstName, DelMiddleName, DelAddress;
+        private DelegateText DelProgram, DelFullName, DelAddress,DelGender,DelBirthday;
         private DelegateNumber DelNumAge, DelNumContactNo, DelStudNo;
 
     
@@ -21,7 +21,7 @@ namespace AccountRegistration
         {
             InitializeComponent();
             DelProgram = new DelegateText(StudentInfoClass.GetProgram);
-            DelLastName = new DelegateText(StudentInfoClass.GetFullName);
+            DelFullName = new DelegateText(StudentInfoClass.GetFullName);
             DelAddress = new DelegateText(StudentInfoClass.GetAddress);
 
             DelNumAge = new DelegateNumber(StudentInfoClass.GetAge);
@@ -32,7 +32,7 @@ namespace AccountRegistration
         {
             labelprogram.Text = "Program: " + DelProgram(StudentInfoClass.SetProgram);
             labelstudentno.Text = "Student No: " + DelStudNo(StudentInfoClass.SetStudentNo).ToString();
-            labelfirstname.Text = "Last Name: " + DelLastName(StudentInfoClass.SetFullName);
+            labelfirstname.Text = "Last Name: " + DelFullName(StudentInfoClass.SetFullName);
             labelage.Text = "Age: " + DelNumAge(StudentInfoClass.SetAge).ToString();
             labeladdress.Text = "Address: " + DelAddress(StudentInfoClass.SetAddress);
             labelcontactnum.Text = "Contact No.: " + DelNumContactNo(StudentInfoClass.SetContactNo).ToString();

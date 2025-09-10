@@ -5,8 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text.RegularExpressions;
 
 namespace AccountRegistration
 {
@@ -15,6 +18,43 @@ namespace AccountRegistration
         public Form1()
         {
             InitializeComponent();
+        }
+        public long StudentNumber(string studNum)
+        {
+
+            _StudentNo = long.Parse(studNum);
+
+            return _StudentNo;
+        }
+
+        public long ContactNo(string Contact)
+        {
+            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            {
+                _ContactNo = long.Parse(Contact);
+            }
+
+            return _ContactNo;
+        }
+
+        public string FullName(string LastName, string FirstName, string MiddleInitial)
+        {
+            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            {
+                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+
+            return _FullName;
+        }
+
+        public int Age(string age)
+        {
+            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            {
+                _Age = Int32.Parse(age);
+            }
+
+            return _Age;
         }
 
         private void Next_Click(object sender, EventArgs e)
@@ -28,6 +68,7 @@ namespace AccountRegistration
 
             FrmConfirm frmConfirm = new FrmConfirm();
             DialogResult result = frmConfirm.ShowDialog();
+
 
             if (result == DialogResult.OK)
             {
