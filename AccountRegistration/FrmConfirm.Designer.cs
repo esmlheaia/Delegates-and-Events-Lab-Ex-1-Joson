@@ -30,13 +30,13 @@
         {
             this.labelstudentno = new System.Windows.Forms.Label();
             this.labelprogram = new System.Windows.Forms.Label();
-            this.labellastname = new System.Windows.Forms.Label();
+            this.labelfirstname = new System.Windows.Forms.Label();
             this.labelage = new System.Windows.Forms.Label();
             this.labelcontactnum = new System.Windows.Forms.Label();
             this.labeladdress = new System.Windows.Forms.Label();
             this.bSubmit = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblbirthday = new System.Windows.Forms.Label();
+            this.lblgender = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelstudentno
@@ -59,15 +59,15 @@
             this.labelprogram.TabIndex = 1;
             this.labelprogram.Text = "Program:";
             // 
-            // labellastname
+            // labelfirstname
             // 
-            this.labellastname.AutoSize = true;
-            this.labellastname.Location = new System.Drawing.Point(3, 37);
-            this.labellastname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labellastname.Name = "labellastname";
-            this.labellastname.Size = new System.Drawing.Size(44, 15);
-            this.labellastname.TabIndex = 2;
-            this.labellastname.Text = "Name:";
+            this.labelfirstname.AutoSize = true;
+            this.labelfirstname.Location = new System.Drawing.Point(3, 37);
+            this.labelfirstname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelfirstname.Name = "labelfirstname";
+            this.labelfirstname.Size = new System.Drawing.Size(44, 15);
+            this.labelfirstname.TabIndex = 2;
+            this.labelfirstname.Text = "Name:";
             // 
             // labelage
             // 
@@ -101,7 +101,7 @@
             // 
             // bSubmit
             // 
-            this.bSubmit.Location = new System.Drawing.Point(109, 245);
+            this.bSubmit.Location = new System.Drawing.Point(128, 244);
             this.bSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.bSubmit.Name = "bSubmit";
             this.bSubmit.Size = new System.Drawing.Size(88, 26);
@@ -110,23 +110,23 @@
             this.bSubmit.UseVisualStyleBackColor = true;
             this.bSubmit.Click += new System.EventHandler(this.bSubmit_Click);
             // 
-            // label1
+            // lblbirthday
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Birthday:";
+            this.lblbirthday.AutoSize = true;
+            this.lblbirthday.Location = new System.Drawing.Point(3, 146);
+            this.lblbirthday.Name = "lblbirthday";
+            this.lblbirthday.Size = new System.Drawing.Size(54, 15);
+            this.lblbirthday.TabIndex = 9;
+            this.lblbirthday.Text = "Birthday:";
             // 
-            // label2
+            // lblgender
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 172);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Gender:";
+            this.lblgender.AutoSize = true;
+            this.lblgender.Location = new System.Drawing.Point(3, 172);
+            this.lblgender.Name = "lblgender";
+            this.lblgender.Size = new System.Drawing.Size(51, 15);
+            this.lblgender.TabIndex = 10;
+            this.lblgender.Text = "Gender:";
             // 
             // FrmConfirm
             // 
@@ -134,13 +134,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(333, 303);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblgender);
+            this.Controls.Add(this.lblbirthday);
             this.Controls.Add(this.bSubmit);
             this.Controls.Add(this.labeladdress);
             this.Controls.Add(this.labelcontactnum);
             this.Controls.Add(this.labelage);
-            this.Controls.Add(this.labellastname);
+            this.Controls.Add(this.labelfirstname);
             this.Controls.Add(this.labelprogram);
             this.Controls.Add(this.labelstudentno);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,12 +158,12 @@
 
         private System.Windows.Forms.Label labelstudentno;
         private System.Windows.Forms.Label labelprogram;
-        private System.Windows.Forms.Label labellastname;
+        private System.Windows.Forms.Label labelfirstname;
         private System.Windows.Forms.Label labelage;
         private System.Windows.Forms.Label labelcontactnum;
         private System.Windows.Forms.Label labeladdress;
         private System.Windows.Forms.Button bSubmit;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblbirthday;
+        private System.Windows.Forms.Label lblgender;
     }
 }

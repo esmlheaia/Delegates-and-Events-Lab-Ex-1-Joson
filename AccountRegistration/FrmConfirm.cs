@@ -30,12 +30,12 @@ namespace AccountRegistration
         }
         private void FrmConfirm_Load(object sender, EventArgs e)
         {
-            labelprogram.Text = "Program: " + DelProgram(StudentInfoClass.Program);
-            labelstudentno.Text = "Student No: " + DelStudNo(StudentInfoClass.StudentNo).ToString();
-            labellastname.Text = "Last Name: " + DelLastName(StudentInfoClass.LastName);
-            labelage.Text = "Age: " + DelNumAge(StudentInfoClass.Age).ToString();
-            labeladdress.Text = "Address: " + DelAddress(StudentInfoClass.Address);
-            labelcontactnum.Text = "Contact No.: " + DelNumContactNo(StudentInfoClass.ContactNo).ToString();
+            labelprogram.Text = "Program: " + DelProgram(StudentInfoClass.SetProgram);
+            labelstudentno.Text = "Student No: " + DelStudNo(StudentInfoClass.SetStudentNo).ToString();
+            labelfirstname.Text = "Last Name: " + DelLastName(StudentInfoClass.SetFullName);
+            labelage.Text = "Age: " + DelNumAge(StudentInfoClass.SetAge).ToString();
+            labeladdress.Text = "Address: " + DelAddress(StudentInfoClass.SetAddress);
+            labelcontactnum.Text = "Contact No.: " + DelNumContactNo(StudentInfoClass.SetContactNo).ToString();
 
         }
         private void FrmConfirm_FormClosing(object sender, FormClosingEventArgs e)
