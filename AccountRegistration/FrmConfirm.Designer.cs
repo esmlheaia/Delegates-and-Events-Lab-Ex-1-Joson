@@ -35,8 +35,8 @@
             this.labelcontactnum = new System.Windows.Forms.Label();
             this.labeladdress = new System.Windows.Forms.Label();
             this.bSubmit = new System.Windows.Forms.Button();
-            this.lblbirthday = new System.Windows.Forms.Label();
-            this.lblgender = new System.Windows.Forms.Label();
+            this.labelbirthday = new System.Windows.Forms.Label();
+            this.labelgender = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelstudentno
@@ -110,23 +110,23 @@
             this.bSubmit.UseVisualStyleBackColor = true;
             this.bSubmit.Click += new System.EventHandler(this.bSubmit_Click);
             // 
-            // lblbirthday
+            // labelbirthday
             // 
-            this.lblbirthday.AutoSize = true;
-            this.lblbirthday.Location = new System.Drawing.Point(3, 146);
-            this.lblbirthday.Name = "lblbirthday";
-            this.lblbirthday.Size = new System.Drawing.Size(54, 15);
-            this.lblbirthday.TabIndex = 9;
-            this.lblbirthday.Text = "Birthday:";
+            this.labelbirthday.AutoSize = true;
+            this.labelbirthday.Location = new System.Drawing.Point(3, 146);
+            this.labelbirthday.Name = "labelbirthday";
+            this.labelbirthday.Size = new System.Drawing.Size(54, 15);
+            this.labelbirthday.TabIndex = 9;
+            this.labelbirthday.Text = "Birthday:";
             // 
-            // lblgender
+            // labelgender
             // 
-            this.lblgender.AutoSize = true;
-            this.lblgender.Location = new System.Drawing.Point(3, 172);
-            this.lblgender.Name = "lblgender";
-            this.lblgender.Size = new System.Drawing.Size(51, 15);
-            this.lblgender.TabIndex = 10;
-            this.lblgender.Text = "Gender:";
+            this.labelgender.AutoSize = true;
+            this.labelgender.Location = new System.Drawing.Point(3, 172);
+            this.labelgender.Name = "labelgender";
+            this.labelgender.Size = new System.Drawing.Size(51, 15);
+            this.labelgender.TabIndex = 10;
+            this.labelgender.Text = "Gender:";
             // 
             // FrmConfirm
             // 
@@ -134,8 +134,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.ClientSize = new System.Drawing.Size(333, 303);
-            this.Controls.Add(this.lblgender);
-            this.Controls.Add(this.lblbirthday);
+            this.Controls.Add(this.labelgender);
+            this.Controls.Add(this.labelbirthday);
             this.Controls.Add(this.bSubmit);
             this.Controls.Add(this.labeladdress);
             this.Controls.Add(this.labelcontactnum);
@@ -163,7 +163,7 @@
         private System.Windows.Forms.Label labelcontactnum;
         private System.Windows.Forms.Label labeladdress;
         private System.Windows.Forms.Button bSubmit;
-        private System.Windows.Forms.Label lblbirthday;
-        private System.Windows.Forms.Label lblgender;
+        private System.Windows.Forms.Label labelbirthday;
+        private System.Windows.Forms.Label labelgender;
     }
 }
