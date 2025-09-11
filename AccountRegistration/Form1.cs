@@ -26,44 +26,120 @@ namespace AccountRegistration
 
         public long StudentNumber(string studNum)
         {
-            if (string.IsNullOrEmpty(studNum))
+            try
             {
-                _StudentNo = long.Parse(studNum);
+                if (!string.IsNullOrEmpty(studNum))
+                {
+                    _StudentNo = long.Parse(studNum);
+                }
+                else
+                {
+                    throw new ArgumentNullException("Student Number cannot be empty!");
+                }
             }
-            else
+            catch (FormatException) // this exception if their is a letter or symbol in input
             {
-                throw new FormatException("Invalid Input");
+                MessageBox.Show("Student No. must contain digits only.");
             }
-            return _StudentNo;
-        }
+            catch (ArgumentNullException ex) // this exception if the input box is null
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (OverflowException) // this exception if the number is too long 
+            {
+                MessageBox.Show("Please enter a valid Number");
+            }
+            finally
+            {
+
+            }
+
+                return _StudentNo;
+            }
+
+
         public long ContactNo(string Contact)
         {
-            if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+            try
             {
-                _ContactNo = long.Parse(Contact);
+                if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+                {
+                    _ContactNo = long.Parse(Contact);
+                }
+                else
+                {
+                    throw new FormatException("Contact no. must be 11 digits"); 
+                }
             }
+            catch (FormatException ex) // this exception if thye format is wrong or not 11 digits
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (OverflowException) // this exception if the number is too long like you eneter a 12 digits
+            {
+                MessageBox.Show("Contact number is too long");
+            }
+            finally
+            {
 
-            return _ContactNo;
-        }
+            }
+                    return _ContactNo;
+            }
+          
 
-        public string FullName(string LastName, string FirstName, string MiddleInitial)
+        public string FullName(string LastName, string FirstName, string MiddleName)
         {
-            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            try
             {
-                _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+                if (!string.IsNullOrEmpty(LastName) || !string.IsNullOrEmpty(FirstName) || !string.IsNullOrEmpty(MiddleName) || Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleName, @"^[a-zA-Z]+$"))
+                {
+                    _FullName = LastName + ", " + FirstName + ", " + MiddleName;
+                }
+                else
+                {
+                    throw new ArgumentNullException("Invalid FullName and must be alphabetic");
+                }
+            }
+            catch (ArgumentNullException ex) // this exception if the input is null
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (IndexOutOfRangeException) // this exception if not complete the input fields 
+            {
+                MessageBox.Show("Name input is incomplete");
+            }
+            finally
+            {
+
             }
 
-            return _FullName;
+                    return _FullName;
         }
 
         public int Age(string age)
         {
-            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            try
             {
-                _Age = Int32.Parse(age);
+                if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+                {
+                    _Age = Int32.Parse(age);
+                }
+                else
+                {
+                    throw new FormatException("Age must be numeric and 1-3 digits");
+                }
+            }
+            catch (FormatException ex) // this exception if the digits is too long in 3 digits
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch(OverflowException) // if the digits is  not valid 
+            {
+                MessageBox.Show("Age is too long");
             }
 
-            return _Age;
+
+                    return _Age;
         }
         //combo box 
         private void Next_Click(object sender, EventArgs e)
