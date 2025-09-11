@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace AccountRegistration
 {
     public partial class Form1 : Form
@@ -68,20 +69,12 @@ namespace AccountRegistration
                 }
                 else
                 {
-                    throw new FormatException("Contact no. must be 11 digits"); 
+                    throw new OverflowException();
                 }
             }
-            catch (FormatException ex) // this exception if thye format is wrong or not 11 digits
+            catch (OverflowException)
             {
-                MessageBox.Show(ex.Message);
-            }
-            catch (OverflowException) // this exception if the number is too long like you eneter a 12 digits
-            {
-                MessageBox.Show("Contact number is too long");
-            }
-            finally
-            {
-
+                MessageBox.Show("Number has Exceeded or Inadequate");
             }
                     return _ContactNo;
             }
@@ -133,7 +126,7 @@ namespace AccountRegistration
             {
                 MessageBox.Show(ex.Message);
             }
-            catch(OverflowException) // if the digits is  not valid 
+            catch(OverflowException) // if the digits is  not valid
             {
                 MessageBox.Show("Age is too long");
             }

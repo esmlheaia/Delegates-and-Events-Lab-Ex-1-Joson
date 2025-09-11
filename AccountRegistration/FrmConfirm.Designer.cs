@@ -88,6 +88,7 @@
             this.labelcontactnum.Size = new System.Drawing.Size(73, 15);
             this.labelcontactnum.TabIndex = 6;
             this.labelcontactnum.Text = "Contact No.:";
+            
             // 
             // labeladdress
             // 

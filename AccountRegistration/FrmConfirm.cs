@@ -12,23 +12,9 @@ namespace AccountRegistration
 {
     public partial class FrmConfirm : Form
     {
-        private DelegateText DelProgram, DelFullName, DelAddress,DelGender, DelBirthday, DelNumAge;
-        private DelegateNumber DelNumContactNo, DelStudNo;
-
-    
-
         public FrmConfirm()
         {
             InitializeComponent();
-            DelProgram = new DelegateText(StudentInfoClass.GetProgram);
-            DelFullName = new DelegateText(StudentInfoClass.GetFullName);
-            DelAddress = new DelegateText(StudentInfoClass.GetAddress);
-            DelAddress = new DelegateText(StudentInfoClass.GetGender);
-            DelAddress = new DelegateText(StudentInfoClass.GetBirthday);
-
-            DelNumAge = new DelegateText(StudentInfoClass.GetAge);
-            DelNumContactNo = new DelegateNumber(StudentInfoClass.GetContactNo);
-            DelStudNo = new DelegateNumber(StudentInfoClass.GetStudentNo);
         }
 
         // generate a form 
