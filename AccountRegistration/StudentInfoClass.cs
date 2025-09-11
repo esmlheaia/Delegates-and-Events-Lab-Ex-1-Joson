@@ -8,8 +8,8 @@ namespace AccountRegistration
 {
     internal class StudentInfoClass
     {
-        public static string SetProgram, SetGender, SetBirthday, SetFullName, SetAddress, SetAge  = " ";
-        public static int SetContactNo, SetStudentNo = 0;
+        public static string SetProgram, SetGender, SetBirthday, SetFullName, SetAddress  = " ";
+        public static long SetContactNo, SetStudentNo, SetAge = 0;
 
         }
 

@@ -25,155 +25,186 @@ namespace AccountRegistration
         private long _ContactNo;
 
 
+
+        //combo box 
+        private void Next_Click(object sender, EventArgs e)
+        {
+
+            StudentInfoClass.SetFullName = FullName(txtfirstname.Text, txtlastname.Text, txtmiddlename.Text);
+            StudentInfoClass.SetAddress = txtaddress.Text.ToString();
+            StudentInfoClass.SetProgram = cbprogram.Text.ToString();
+            StudentInfoClass.SetGender = cbGender.Text.ToString();
+            StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
+            StudentInfoClass.SetAge = Age(txtage.Text); ;
+            StudentInfoClass.SetContactNo = ContactNo(txtcontactno.Text);
+            StudentInfoClass.SetStudentNo = StudentNumber(txtstudentno.Text);
+
+            FrmConfirm frmConfirm = new FrmConfirm();
+            DialogResult result = frmConfirm.ShowDialog();
+        }
         public long StudentNumber(string studNum)
         {
             try
             {
-                if (!string.IsNullOrEmpty(studNum))
-                {
-                    _StudentNo = long.Parse(studNum);
-                }
-                else
+                if (string.IsNullOrEmpty(studNum))
                 {
                     throw new ArgumentNullException("Student Number cannot be empty!");
                 }
+                else if (!Regex.IsMatch(studNum, @"^[0-9]+$"))
+                {
+                    throw new FormatException("Student Number must contain digits only.");
+                }
+                else if (studNum.Length > 10) // example length check
+                {
+                    throw new OverflowException("Student Number is too long.");
+                }
+                else
+                {
+                    _StudentNo = long.Parse(studNum);
+                }
             }
-            catch (FormatException) // this exception if their is a letter or symbol in input
+            catch (ArgumentNullException a)
             {
-                MessageBox.Show("Student No. must contain digits only.");
+                MessageBox.Show(a.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentNullException ex) // this exception if the input box is null
+            catch (FormatException f)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(f.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (OverflowException) // this exception if the number is too long 
+            catch (OverflowException o)
             {
-                MessageBox.Show("Please enter a valid Number");
+                MessageBox.Show(o.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-
+                // Optional cleanup
             }
 
-                return _StudentNo;
-            }
-
+            return _StudentNo;
+        }
 
         public long ContactNo(string Contact)
         {
             try
             {
-                if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+                if (string.IsNullOrEmpty(Contact))
+                {
+                    throw new ArgumentNullException("Contact Number cannot be empty!");
+                }
+                else if (!Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
+                {
+                    throw new FormatException("Contact Number must be 10 or 11 digits.");
+                }
+                else
                 {
                     _ContactNo = long.Parse(Contact);
                 }
-                else
-                {
-                    throw new OverflowException();
-                }
             }
-            catch (OverflowException)
+            catch (ArgumentNullException a)
             {
-                MessageBox.Show("Number has Exceeded or Inadequate");
+                MessageBox.Show(a.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                    return _ContactNo;
-            }
-          
-
-        public string FullName(string LastName, string FirstName, string MiddleName)
-        {
-            try
+            catch (FormatException f)
             {
-                if (!string.IsNullOrEmpty(LastName) || !string.IsNullOrEmpty(FirstName) || !string.IsNullOrEmpty(MiddleName) || Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleName, @"^[a-zA-Z]+$"))
-                {
-                    _FullName = LastName + ", " + FirstName + ", " + MiddleName;
-                }
-                else
-                {
-                    throw new ArgumentNullException("Invalid FullName and must be alphabetic");
-                }
+                MessageBox.Show(f.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (ArgumentNullException ex) // this exception if the input is null
+            catch (OverflowException o)
             {
-                MessageBox.Show(ex.Message);
-            }
-            catch (IndexOutOfRangeException) // this exception if not complete the input fields 
-            {
-                MessageBox.Show("Name input is incomplete");
+                MessageBox.Show(o.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-
+                // Optional cleanup
             }
 
-                    return _FullName;
+            return _ContactNo;
+        }
+
+        public string FullName(string LastName, string FirstName, string MiddleInitial)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(MiddleInitial))
+                {
+                    throw new ArgumentNullException("Full Name fields cannot be empty!");
+                }
+                else if (!Regex.IsMatch(LastName, @"^[a-zA-Z]+$") ||
+                         !Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") ||
+                         !Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+                {
+                    throw new FormatException("Full Name must contain alphabetic characters only.");
+                }
+                else if (LastName.Length < 2 || FirstName.Length < 2)
+                {
+                    throw new IndexOutOfRangeException("Full Name fields are too short.");
+                }
+                else
+                {
+                    _FullName = LastName + ", " + FirstName + " " + MiddleInitial;
+                }
+            }
+            catch (ArgumentNullException a)
+            {
+                MessageBox.Show(a.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException f)
+            {
+                MessageBox.Show(f.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException i)
+            {
+                MessageBox.Show(i.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Optional cleanup
+            }
+
+            return _FullName;
         }
 
         public int Age(string age)
         {
             try
             {
-                if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+                if (string.IsNullOrEmpty(age))
                 {
-                    _Age = Int32.Parse(age);
+                    throw new ArgumentNullException("Age cannot be empty!");
+                }
+                else if (!Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+                {
+                    throw new FormatException("Age must be numeric and 1-3 digits.");
+                }
+                else if (int.Parse(age) > 120)
+                {
+                    throw new OverflowException("Age entered is not realistic.");
                 }
                 else
                 {
-                    throw new FormatException("Age must be numeric and 1-3 digits");
+                    _Age = Int32.Parse(age);
                 }
             }
-            catch (FormatException ex) // this exception if the digits is too long in 3 digits
+            catch (ArgumentNullException a)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(a.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(OverflowException) // if the digits is  not valid
+            catch (FormatException f)
             {
-                MessageBox.Show("Age is too long");
+                MessageBox.Show(f.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException o)
+            {
+                MessageBox.Show(o.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Optional cleanup
             }
 
-
-                    return _Age;
+            return _Age;
         }
-        //combo box 
-        private void Next_Click(object sender, EventArgs e)
-        {
-            StudentInfoClass.SetFullName = FullName(txtfirstname.Text,txtlastname.Text, txtmiddlename.Text);
-            StudentInfoClass.SetAddress = txtaddress.Text.ToString();
-            StudentInfoClass.SetProgram = cbprogram.Text.ToString();
-            StudentInfoClass.SetGender = cbGender.Text.ToString();
-            StudentInfoClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
-            StudentInfoClass.SetAge =txtage.Text.ToString();
-            StudentInfoClass.SetContactNo = (int)Convert.ToInt64(txtcontactno.Text);
-            StudentInfoClass.SetStudentNo = (int)Convert.ToInt64(txtstudentno.Text);
-
-            FrmConfirm frmConfirm = new FrmConfirm();
-            DialogResult result = frmConfirm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                if (result == DialogResult.OK)
-                {
-
-                    MessageBox.Show("Registration Successful!");
-
-
-                    foreach (Control ctrl in this.Controls)
-                    {
-                        if (ctrl is TextBox)
-                            ((TextBox)ctrl).Clear();
-
-                        if (ctrl is ComboBox)
-                            ((ComboBox)ctrl).SelectedIndex = -1;
-                    }
-                }
-                else if (result == DialogResult.Cancel)
-                {
-
-                    MessageBox.Show("Registration Cancelled. You may edit your details.");
-
-                }
-            }
-        }
-
     }
 }
+
+
+            
